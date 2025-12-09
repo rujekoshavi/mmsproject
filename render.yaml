@@ -1,0 +1,8 @@
+cat > render.yaml << 'EOF'
+services:
+  - type: web
+    name: openmrs-project
+    runtime: python
+    buildCommand: "pip install -r requirements.txt && python init_db.py"
+    startCommand: "python app.py"
+EOF
