@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/project_styles.css">
+    <title>Open MRS - Library</title>
+    <style>
+        .library-layout {
+            display: flex;
+            gap: 20px;
+        }
+
+        .category-list {
+            flex-basis: 250px; 
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .category-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .category-list li a {
+            display: block;
+            padding: 8px 0;
+            color: #175f46;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .article-previews {
+            flex-grow: 1; 
+        }
+
+        .article-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .article-card h2 a {
+            color: rgb(191, 102, 7);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <header class="header">
+            <h1>Open MRS</h1>
+        </header>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/library">Library</a></li>
+                <li><a href="/faq">FAQs</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <h1>Our Documentation Library</h1>
+            <div class="library-layout">
+                
+                <aside class="category-list">
+                    <h2>Categories</h2>
+                    <ul>
+                        <li><a href="#">Technical Support</a></li>
+                        <li><a href="#">Development Guidelines</a></li>
+                        <li><a href="#">Release Notes</a></li>
+                        <li><a href="#">Contributing</a></li>
+                    </ul>
+                </aside>
+
+                <section class="article-previews">
+                    <div class="article-card">
+                        <h2><a href="#">Staying Healthy with OpenMRS</a></h2>
+                        <p>Learn how to use the OpenMRS patient portal to track appointments, medications, and lab results.</p>
+                        <p><small>Published: 2025-01-01 | Views: 0</small></p>
+                    </div>
+
+                    <div class="article-card">
+                        <h2><a href="#">Getting Started Guide</a></h2>
+                        <p>A comprehensive guide covering deployment steps for new users and system administrators.</p>
+                        <p><small>Published: 2025-01-01 | Views: 0</small></p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <aside class="facts">
+            <h2>Quick Links:</h2>
+            <ul>
+                <li>View Bookmarks</li>
+                <li>Top Rated FAQs</li>
+            </ul>
+        </aside>
+
+        <footer class="footer">
+            <p>
+                <a href="/">Home</a> |
+                <a href="/library">Library</a> |
+                <a href="/faq">FAQs</a> |
+                <a href="/contact">Contact Us</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

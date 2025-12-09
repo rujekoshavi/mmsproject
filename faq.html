@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/project_styles.css">
+    <title>Open MRS - FAQs</title>
+    <style>
+        .faq-item h3 {
+            color: #003dcc;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .faq-item p {
+            padding-left: 20px;
+            border-left: 3px solid #ccc;
+            margin-top: 0;
+            display: none; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <header class="header">
+            <h1>Open MRS</h1>
+        </header>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/library">Library</a></li>
+                <li><a href="/faq">FAQs</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <h1>Frequently Asked Questions</h1>
+            <p>How can we help you today? Click a question below to see the answer.</p>
+
+            <div id="faq-container">
+                <!-- FAQs will be loaded here dynamically -->
+            </div>
+        </main>  
+
+        <aside class="facts">
+            <h2>Related Articles:</h2>
+            <ul>
+                <li>Managing Patient Data</li>
+                <li>Open Source Contributions</li>
+                <li>New Features in v2.0</li>
+            </ul>
+        </aside>
+
+        <footer class="footer">
+            <p>
+                <a href="/">Home</a> |
+                <a href="/library">Library</a> |
+                <a href="/faq">FAQs</a> |
+                <a href="/contact">Contact Us</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Load FAQs from the backend when the page loads
+        async function loadFaqs() {
+            try {
+                const response = await fetch('/api/faqs');
+                const faqs = await response.json();
+
+                const container = document.getElementById('faq-container');
+
+                if (faqs.length === 0) {
+                    container.innerHTML = '<p>No FAQs available at this time.</p>';
+                    return;
+                }
+
+                faqs.forEach((faq, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'faq-item';
+
+                    const question = document.createElement('h3');
+                    question.textContent = `Q${index + 1}: ${faq.question}`;
+                    question.onclick = function () {
+                        toggleAnswer(question);
+                    };
+
+                    const answer = document.createElement('p');
+                    answer.textContent = `A: ${faq.answer}`;
+
+                    item.appendChild(question);
+                    item.appendChild(answer);
+                    container.appendChild(item);
+                });
+            } catch (error) {
+                console.error('Error loading FAQs:', error);
+                document.getElementById('faq-container').innerHTML = 
+                    '<p>Error loading FAQs. Please try again later.</p>';
+            }
+        }
+
+        function toggleAnswer(element) {
+            var answer = element.nextElementSibling;
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+            } else {
+                answer.style.display = "block";
+            }
+        }
+
+        // Run when page finishes loading
+        window.onload = loadFaqs;
+    </script>
+</body>    
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open MRS - Contact</title>
+   <link rel="stylesheet" href="/project_styles.css">
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <header class="header">
+            <h1>Open MRS</h1>
+        </header>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/library">Library</a></li>
+                <li><a href="/faq">FAQs</a></li>
+                <li><a class="active" href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <h1>Contact Us</h1>
+            <p>Have questions or need assistance? We're here to help.</p>
+
+            <div class="contact-container">
+                <h2>Send Us a Message</h2>
+
+                <form action="/contact" method="POST" class="contact-form">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" maxlength="200" required>
+
+                    <label for="category">Category:</label>
+                    <select id="category" name="categoryID" required>
+                        <option value="">-- Select a Category --</option>
+                        <option value="1">Technical Support</option>
+                        <option value="2">Billing Inquiry</option>
+                        <option value="3">General Feedback</option>
+                    </select>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="submissionMessage" rows="6" required></textarea>
+
+                    <button type="submit" class="submit-btn">Submit Message</button>
+                </form>
+            </div>
+        </main>
+
+        <aside class="facts">
+            <h2>Quick Links:</h2>
+            <ul>
+                <li>View FAQs</li>
+                <li>Support Center</li>
+            </ul>
+        </aside>
+
+        <footer class="footer">
+            <p>
+                <a href="/">Home</a> |
+                <a href="/library">Library</a> |
+                <a href="/faq">FAQs</a> |
+                <a href="/contact">Contact Us</a>
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
